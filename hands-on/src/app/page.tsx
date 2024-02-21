@@ -2,7 +2,7 @@
 export default function Home() {
   return (
     <div>
-      <h1>Branch dev</h1>
+      <h1>Branch main</h1>
     </div>
   );
 }
