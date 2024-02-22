@@ -1,3 +1,4 @@
+import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
 import { HeaderPrimary } from "@/components/Header-primary";
 import { Input } from "@/components/Input";
@@ -22,13 +23,13 @@ export default function Home() {
             com o DINDIN, você tem tudo num único lugar e
             em um clique de distância.
           </h2>
-          <Link href='/registre'>
-            <div className="w-72">
-              <button className="bg-[#7978D9] rounded py-3 w-full">
-                Cadastre-se
-              </button>
-            </div>
-          </Link>
+          <div className="w-72">
+            <Link href='/registre'>
+                <Button>
+                   Cadastre-se
+                </Button>
+            </Link>
+          </div>
         </div>
 
         <Card>
@@ -66,9 +67,9 @@ export default function Home() {
               />
             </div>
 
-            <button className="bg-[#7978D9] rounded py-3 w-full text-white mt-10">
+            <Button>
               Entrar
-            </button>
+            </Button>
           </form>
         </Card>
       </div>
