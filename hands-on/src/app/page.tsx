@@ -1,8 +1,7 @@
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
+import { FormLogin } from "@/components/Froms/FormLogin";
 import { HeaderPrimary } from "@/components/Header-primary";
-import { Input } from "@/components/Input";
-import { Label } from "@/components/Label";
 import Link from "next/link";
 
 export default function Home() {
@@ -33,44 +32,7 @@ export default function Home() {
         </div>
 
         <Card>
-          <form className="flex flex-col gap-8">
-            <div className="flex items-center justify-center w-full">
-              <h1
-                className="text-[28px] font-medium text-[#7978D9]"
-              >
-                Login
-              </h1>
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <Label
-                labelHtmlFor="email"
-                type="sm"
-              >
-                E-mail
-              </Label>
-              <Input
-                id="email"
-              />
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <Label
-                labelHtmlFor="password"
-                type="sm"
-              >
-                Password
-              </Label>
-              <Input
-                id="password"
-                type="password"
-              />
-            </div>
-
-            <Button>
-              Entrar
-            </Button>
-          </form>
+          <FormLogin />
         </Card>
       </div>
     </main>
