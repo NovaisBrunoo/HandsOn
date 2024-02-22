@@ -1,3 +1,4 @@
+import { Card } from "@/components/Card";
 import { HeaderPrimary } from "@/components/Header-primary";
 import { Input } from "@/components/Input";
 import { Label } from "@/components/Label";
@@ -30,9 +31,7 @@ export default function Home() {
           </Link>
         </div>
 
-        <div
-          className="bg-white px-8 py-11 flex flex-col w-[513px]"
-        >
+        <Card>
           <form className="flex flex-col gap-8">
             <div className="flex items-center justify-center w-full">
               <h1
@@ -71,7 +70,7 @@ export default function Home() {
               Entrar
             </button>
           </form>
-        </div>
+        </Card>
       </div>
     </main>
   );
