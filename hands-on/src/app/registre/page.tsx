@@ -1,3 +1,4 @@
+import { Card } from "@/components/Card"
 import { HeaderPrimary } from "@/components/Header-primary"
 import { Input } from "@/components/Input"
 import { Label } from "@/components/Label"
@@ -11,9 +12,7 @@ export default function Registre() {
 
       <div className="w-flu h-full flex items-center justify-center my-16">
 
-        <div
-          className="bg-white px-8 py-10 flex flex-col w-[513px]"
-        >
+        <Card>
           <form className="flex flex-col gap-8">
 
             <h1
@@ -83,7 +82,7 @@ export default function Registre() {
               Já tem cadastro? Clique aqui!
             </Link>
           </form>
-        </div>
+        </Card>
 
       </div>
 
