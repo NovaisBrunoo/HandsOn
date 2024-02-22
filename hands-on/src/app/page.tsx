@@ -1,25 +1,12 @@
+import { HeaderPrimary } from "@/components/Header-primary";
 import { Input } from "@/components/Input";
 import { Label } from "@/components/Label";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <main className="bg-[url('/background.png')] bg-cover bg-no-repeat h-screen w-screen">
-      <header className="flex items-center justify-start py-10 px-[105px]">
-        <div className="flex items-center gap-1 cursor-pointer">
-            <Image 
-              src='/logo.svg'
-              height={45}
-              width={45}
-              alt="logo dindin"
-            />
-            <h1 className="text-white font-bold text-4xl">
-              Dindin
-            </h1>
-        </div>
-      </header>
-
+      <HeaderPrimary />
       <div className="flex items-center justify-evenly">
         <div className="w-1/2 flex flex-col gap-9 text-white">
             <h1
