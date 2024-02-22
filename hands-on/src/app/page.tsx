@@ -1,6 +1,6 @@
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
-import { FormLogin } from "@/components/Froms/FormLogin";
+import { FormLogin } from "@/components/Forms/FormLogin";
 import { HeaderPrimary } from "@/components/Header-primary";
 import Link from "next/link";
 
