@@ -21,7 +21,7 @@ export default function Home() {
                 com o DINDIN, você tem tudo num único lugar e 
                 em um clique de distância.
               </h2>
-              <Link href='/home'>
+              <Link href='/registre'>
                 <div className="w-72">
                   <button className="bg-[#7978D9] rounded py-3 w-full">
                     Cadastre-se
@@ -68,7 +68,7 @@ export default function Home() {
             </div>
 
             <button className="bg-[#7978D9] rounded py-3 w-full text-white mt-10">
-                    Cadastre-se
+                    Entrar
             </button>
           </form>
         </div>
