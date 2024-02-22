@@ -3,6 +3,7 @@ import Table from "@/components/Table"
 
 
 export default function Main() {
+
   return (
     <div className="w-full min-h-screen flex flex-col justify-center items-center">
 
