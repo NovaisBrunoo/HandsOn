@@ -1,46 +1,73 @@
 import { Button } from "@/components/Button"
 import { Input } from "@/components/Input"
 import { Label } from "@/components/Label"
+import { SubmitHandler, useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup";
+import { TypeFormLogin, schemaLogin } from "@/utils/schema/shema.form-login";
 
 export const FormLogin = () =>{
-    return(
-        <form className="flex flex-col gap-8">
-            <div className="flex items-center justify-center w-full">
-              <h1
-                className="text-[28px] font-medium text-[#7978D9]"
-              >
-                Login
-              </h1>
-            </div>
+  const { register, handleSubmit, formState: { errors }, reset } = useForm({
+    mode: 'all',
+    reValidateMode: 'onChange',
+    resolver: yupResolver(schemaLogin)
+  })
 
-            <div className="flex flex-col gap-2">
-              <Label
-                labelHtmlFor="email"
-                type="sm"
-              >
-                E-mail
-              </Label>
-              <Input
-                id="email"
-              />
-            </div>
+  const onSubmit: SubmitHandler<TypeFormLogin> = async (data) => {
+    console.log(data)
+  }
 
-            <div className="flex flex-col gap-2">
-              <Label
-                labelHtmlFor="password"
-                type="sm"
-              >
-                Password
-              </Label>
-              <Input
-                id="password"
-                type="password"
-              />
-            </div>
+  return(
+      <form className="flex flex-col gap-8">
+          <div className="flex items-center justify-center w-full">
+            <h1
+              className="text-[28px] font-medium text-[#7978D9]"
+            >
+              Login
+            </h1>
+          </div>
 
-            <Button>
-              Entrar
-            </Button>
-          </form>
-    )
+          <div className="flex flex-col gap-2">
+            <Label
+              labelHtmlFor="email"
+              type="sm"
+            >
+              E-mail
+            </Label>
+            <Input
+              id="email"
+              {...register('email')}
+            />
+            {
+              errors.email && 
+              <span className="text-red-500 text-xs">
+                {errors.email.message}
+              </span>
+            }
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <Label
+              labelHtmlFor="password"
+              type="sm"
+            >
+              Password
+            </Label>
+            <Input
+              id="password"
+              type="password"
+              {...register('password')}
+            />
+            {
+              errors.password && 
+              <span className="text-red-500 text-xs">
+                {errors.password.message}
+              </span>
+            }
+          </div>
+
+          <Button>
+            Entrar
+          </Button>
+        </form>
+  )
 }
