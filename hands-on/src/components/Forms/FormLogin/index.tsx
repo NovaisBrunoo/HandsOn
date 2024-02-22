@@ -1,3 +1,4 @@
+'use client'
 import { Button } from "@/components/Button"
 import { Input } from "@/components/Input"
 import { Label } from "@/components/Label"
@@ -6,7 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { TypeFormLogin, schemaLogin } from "@/utils/schema/shema.form-login";
 
 export const FormLogin = () =>{
-  const { register, handleSubmit, formState: { errors }, reset } = useForm({
+  const { register, handleSubmit, formState: { errors } } = useForm({
     mode: 'all',
     reValidateMode: 'onChange',
     resolver: yupResolver(schemaLogin)
@@ -17,7 +18,7 @@ export const FormLogin = () =>{
   }
 
   return(
-      <form className="flex flex-col gap-8">
+      <form className="flex flex-col gap-8" onSubmit={handleSubmit(onSubmit)}>
           <div className="flex items-center justify-center w-full">
             <h1
               className="text-[28px] font-medium text-[#7978D9]"
@@ -39,7 +40,7 @@ export const FormLogin = () =>{
             />
             {
               errors.email && 
-              <span className="text-red-500 text-xs">
+              <span className="text-red-500 text-[0.5rem]">
                 {errors.email.message}
               </span>
             }
@@ -59,7 +60,7 @@ export const FormLogin = () =>{
             />
             {
               errors.password && 
-              <span className="text-red-500 text-xs">
+              <span className="text-red-500 text-[0.5rem]">
                 {errors.password.message}
               </span>
             }

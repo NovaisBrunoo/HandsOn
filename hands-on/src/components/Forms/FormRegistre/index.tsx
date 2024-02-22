@@ -1,3 +1,4 @@
+'use client'
 import { Button } from "@/components/Button"
 import { Input } from "@/components/Input"
 import { Label } from "@/components/Label"
@@ -18,7 +19,7 @@ export const FormRegistre = () =>{
   }
 
   return(
-      <form className="flex flex-col gap-8">
+      <form className="flex flex-col gap-8" onSubmit={handleSubmit(onSubmit)}>
           <h1
             className="text-[28px] font-medium text-[#7978D9] text-center"
           >
@@ -30,7 +31,7 @@ export const FormRegistre = () =>{
                   Nome
               </Label>
               <Input id="name" {...register('name')} />
-              {errors.name && <span className="text-red-500 text-xs">{errors.name.message}</span>}
+              {errors.name && <span className="text-red-500 text-[0.5rem]">{errors.name.message}</span>}
           </div>
 
           <div className="flex flex-col gap-2">
@@ -38,7 +39,7 @@ export const FormRegistre = () =>{
                   E-mail
               </Label>
               <Input id="email" {...register('email')} />
-              {errors.email && <span className="text-red-500 text-xs">{errors.email.message}</span>}
+              {errors.email && <span className="text-red-500 text-[0.5rem]">{errors.email.message}</span>}
           </div>
 
           <div className="flex flex-col gap-2">
@@ -46,7 +47,7 @@ export const FormRegistre = () =>{
                   Senha
               </Label>
               <Input id="password" type="password" {...register('password')} />
-              {errors.password && <span className="text-red-500 text-xs">{errors.password.message}</span>}
+              {errors.password && <span className="text-red-500 text-[0.5rem]">{errors.password.message}</span>}
           </div>
 
           <div className="flex flex-col gap-2">
@@ -54,7 +55,7 @@ export const FormRegistre = () =>{
                   Confirmação de senha
               </Label>
               <Input id="confirmPassword" type="password" {...register('confirmPassword')} />
-              {errors.confirmPassword && <span className="text-red-500 text-xs">{errors.confirmPassword.message}</span>}
+              {errors.confirmPassword && <span className="text-red-500 text-[0.5rem]">{errors.confirmPassword.message}</span>}
           </div>
 
           <Button>
