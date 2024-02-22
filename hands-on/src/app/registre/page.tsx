@@ -1,6 +1,6 @@
 import { Card } from "@/components/Card"
 import { FormRegistre } from "@/components/Forms/FormRegistre"
-import { HeaderPrimary } from "@/components/Header-primary"
+import { HeaderPrimary } from "@/components/Header/Header-primary"
 
 
 export default function Registre() {

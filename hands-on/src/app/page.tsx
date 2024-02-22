@@ -1,7 +1,7 @@
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
 import { FormLogin } from "@/components/Forms/FormLogin";
-import { HeaderPrimary } from "@/components/Header-primary";
+import { HeaderPrimary } from "@/components/Header/Header-primary";
 import Link from "next/link";
 
 export default function Home() {
