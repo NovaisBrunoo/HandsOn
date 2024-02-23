@@ -28,7 +28,7 @@ export const FormLogin = () => {
       
       if(data.length > 0){
         push("/Main")
-        setItemObject('user', data)
+        setItemObject('user', data[0])
       } else {
         alert("Credenciais inválidas. Por favor, tente novamente.")
       }
