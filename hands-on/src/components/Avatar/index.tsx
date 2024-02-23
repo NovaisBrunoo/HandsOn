@@ -1,8 +1,11 @@
 'use client'
-import Image from "next/image";
-import { useState } from "react";
+
 import { FormEditUser } from "../Forms/FromEditUser";
 import { Modal } from "../Modal";
+
+import { getItemObject } from "@/utils/localStorageUtils";
+import Image from "next/image";
+import { useState } from "react";
 
 export const Avatar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -15,13 +18,13 @@ export const Avatar = () => {
   return (
     <>
       <div className="flex justify-center items-center" onClick={openCloseModal}>
-        <Image 
-          src="/assets/icon/icon-profile.svg" 
-          alt="profile" 
-          height={41} 
-          width={41} 
+        <Image
+          src="/assets/icon/icon-profile.svg"
+          alt="profile"
+          height={41}
+          width={41}
         />
-        <strong className="text-white ">Daniel</strong>
+        <strong className="text-white ">{getItemObject('user').name}</strong>
       </div>
       <Modal
         title="Editar Perfil"
