@@ -2,9 +2,11 @@
 import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
 import { Label } from "@/components/Label";
+import { api } from "@/lib/api";
 import { TypeFormRegistre, schemaRegistre } from "@/utils/schema/shema.form-registre";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 export const FormRegistre = () => {
@@ -13,9 +15,28 @@ export const FormRegistre = () => {
     reValidateMode: 'onChange',
     resolver: yupResolver(schemaRegistre)
   })
+  const {push} = useRouter()
 
   const onSubmit: SubmitHandler<TypeFormRegistre> = async (data) => {
-  
+    try {
+      const objUser = {
+        name: data.name,
+        email: data.email,
+        password: data.password
+      }
+      
+      const  {status} = await api.post('/users', objUser)
+
+      if(status === 201){
+        alert('usuario criado!!')
+        return push('/')
+      } else {
+        alert('Erro ao tentar criar!!')
+      }
+      
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (
