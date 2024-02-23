@@ -25,10 +25,20 @@ export default function Table() {
             <td className="text-xs text-center font-sans">{item.data}</td>
             <td className="text-xs text-center font-sans">{item.diaDaSemana}</td>
             <td className="text-xs text-center font-sans">{item.tipo}</td>
-            <td className="text-xs text-center font-sans font-bold">{formateCurrency(item.saldoAnterior)}</td>
-            <td className="text-xs text-center font-sans font-bold text-[#7b61ff]">{formateCurrency(item.valor)}</td>
-            <td><Image src={iconPencil} alt="icon pencil" width={20} height={20} /> </td>
-
+            <td className="text-xs text-center font-sans font-bold">
+              {formateCurrency(item.saldoAnterior)}
+            </td>
+            <td className="text-xs text-center font-sans font-bold text-[#7b61ff]">
+              {formateCurrency(item.valor)}
+            </td>
+            <td>
+              <Image 
+                src='/assets/icon/pencil-svgrepo-com.svg' 
+                alt="icon pencil" 
+                width={20} 
+                height={20} 
+              /> 
+            </td>
           </tr>
         ))}
 

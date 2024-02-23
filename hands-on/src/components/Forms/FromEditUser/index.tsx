@@ -4,8 +4,7 @@ import { Input } from "@/components/Input";
 import { Label } from "@/components/Label";
 import { TypeFormRegistre, schemaRegistre } from "@/utils/schema/shema.form-registre";
 import { yupResolver } from "@hookform/resolvers/yup";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 export const FormEditUser = () => {
@@ -15,20 +14,6 @@ export const FormEditUser = () => {
     reValidateMode: 'onChange',
     resolver: yupResolver(schemaRegistre)
   })
-
-  async function handelGetUser() {
-    try {
-      const response = await axios.get('https://fakestoreapi.com/users/1')
-      setUser(response.data)
-    } catch (error) {
-      console.log(error)
-    }
-
-  }
-
-  useEffect(() => {
-    handelGetUser()
-  }, [])
 
   const onSubmit: SubmitHandler<TypeFormRegistre> = async (data) => {
     console.log(data)
@@ -40,7 +25,7 @@ export const FormEditUser = () => {
         <Label labelHtmlFor="name" type="lg">
           Nome
         </Label>
-        <Input id="name" {...register('name')} value={user.username} />
+        <Input id="name" {...register('name')}/>
         {errors.name && <span className="text-red-500 text-[0.5rem]">{errors.name.message}</span>}
       </div>
 
@@ -48,7 +33,7 @@ export const FormEditUser = () => {
         <Label labelHtmlFor="email" type="lg">
           E-mail
         </Label>
-        <Input id="email" {...register('email')} value={user.email} />
+        <Input id="email" {...register('email')} />
         {errors.email && <span className="text-red-500 text-[0.5rem]">{errors.email.message}</span>}
       </div>
 

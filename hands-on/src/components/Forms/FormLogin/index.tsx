@@ -4,7 +4,6 @@ import { Input } from "@/components/Input"
 import { Label } from "@/components/Label"
 import { TypeFormLogin, schemaLogin } from "@/utils/schema/shema.form-login"
 import { yupResolver } from "@hookform/resolvers/yup"
-import axios from "axios"
 import { useRouter } from "next/navigation"
 import { SubmitHandler, useForm } from "react-hook-form"
 
@@ -17,19 +16,7 @@ export const FormLogin = () => {
   })
 
   const onSubmit: SubmitHandler<TypeFormLogin> = async (data) => {
-    console.log(data)
-    try {
-      const response = await axios.post('https://fakestoreapi.com/auth/login', {
-        username: "mor_2314",
-        password: "83r5^_"
-
-      })
-      console.log(response.data.token)
-      router.push('/Main')
-
-    } catch (error) {
-      console.log(error)
-    }
+    
   }
 
   return (

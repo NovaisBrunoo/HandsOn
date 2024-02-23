@@ -4,38 +4,18 @@ import { Input } from "@/components/Input";
 import { Label } from "@/components/Label";
 import { TypeFormRegistre, schemaRegistre } from "@/utils/schema/shema.form-registre";
 import { yupResolver } from "@hookform/resolvers/yup";
-import axios from "axios";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 export const FormRegistre = () => {
-
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     mode: 'all',
     reValidateMode: 'onChange',
     resolver: yupResolver(schemaRegistre)
   })
-  const router = useRouter()
+
   const onSubmit: SubmitHandler<TypeFormRegistre> = async (data) => {
-    console.log(data.name)
-    try {
-      const response = await axios.post('https://fakestoreapi.com/users', {
-        username: data.name,
-        email: data.email,
-        password: data.password,
-        name: {
-          firstname: data.name,
-        }
-      })
-      console.log('objeto enviado', response)
-      reset()
-      router.push('/')
-
-    } catch (error) {
-      console.log(error)
-    }
-
+  
   }
 
   return (
