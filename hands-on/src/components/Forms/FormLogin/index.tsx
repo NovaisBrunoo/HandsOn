@@ -3,6 +3,7 @@ import { Button } from "@/components/Button"
 import { Input } from "@/components/Input"
 import { Label } from "@/components/Label"
 import { api } from "@/lib/api"
+import { setItemObject } from "@/utils/localStorageUtils"
 import { TypeFormLogin, schemaLogin } from "@/utils/schema/shema.form-login"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useRouter } from "next/navigation"
@@ -27,6 +28,7 @@ export const FormLogin = () => {
       
       if(data.length > 0){
         push("/Main")
+        setItemObject('user', data)
       } else {
         alert("Credenciais inválidas. Por favor, tente novamente.")
       }
