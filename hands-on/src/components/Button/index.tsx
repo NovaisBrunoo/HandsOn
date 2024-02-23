@@ -1,13 +1,16 @@
-import { ReactNode } from "react"
+import { ReactNode, ButtonHTMLAttributes } from "react";
 
-type ButtonProps ={
-    children: ReactNode
-}
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+    children: ReactNode;
+};
 
-export const Button = ({children}: ButtonProps) =>{
-    return(
-        <button className="bg-[#7978D9] rounded py-3 w-full font-bold text-sm  text-white">
-               {children}
+export const Button = ({ children, ...props }: ButtonProps) => {
+    return (
+        <button
+            {...props}
+            className="bg-[#7978D9] rounded py-3 w-full font-bold text-sm text-white"
+        >
+            {children}
         </button>
-    )
-}
+    );
+};
